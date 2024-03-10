@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TiendaServico.API.Libro.Application;
+using TiendaServico.API.Libro.Application.DTOs;
 using TiendaServico.API.Libro.Models;
 
 namespace TiendaServico.API.Libro.Controllers;
@@ -18,7 +18,17 @@ public class LibroMaterialController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<LibreriaMaterial>> Crear(Nuevo.Ejecuta ejecuta)
     {
-        var libreriaMaterial=  await _mediator.Send(ejecuta);
+        var libreriaMaterial = await _mediator.Send(ejecuta);
         return Ok(libreriaMaterial);
+    }
+    [HttpGet]
+    public async Task<ActionResult<List<LibroMaterialDTO>>> GetLibros()
+    {
+        return await _mediator.Send(new Consulta.Ejecuta());
+    }
+    [HttpGet]
+    public async Task<ActionResult<LibroMaterialDTO>> GetLibroUnico([FromQuery] Guid id)
+    {
+        return await _mediator.Send(new ConsultaFiltro.LibroUnico { LibroId = id });
     }
 }

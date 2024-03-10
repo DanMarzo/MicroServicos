@@ -15,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ContextLibreria>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionSQLServer")));
 builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(typeof(Nuevo.Manejador).Assembly));
+builder.Services.AddAutoMapper(typeof(Consulta.Ejecuta));
 
 var app = builder.Build();
 

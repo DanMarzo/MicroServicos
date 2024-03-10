@@ -1,6 +1,6 @@
-﻿namespace TiendaServico.API.Libro.Application;
+﻿namespace TiendaServico.API.Libro.Application.DTOs;
 
-public class LibreMaterialDTO
+public class LibroMaterialDTO
 {
     public string? Titulo { get; set; }
     public DateTime? FechaPublicacion { get; set; }
