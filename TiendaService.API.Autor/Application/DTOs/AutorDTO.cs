@@ -1,4 +1,4 @@
-﻿namespace TiendaService.API.Autor.Application;
+﻿namespace TiendaService.API.Autor.Application.DTOs;
 
 public class AutorDTO
 {

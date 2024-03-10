@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using TiendaService.API.Autor.Application.DTOs;
 using TiendaService.API.Autor.Models;
 using TiendaService.API.Autor.Persistence;
 

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TiendaService.API.Autor.Application;
+using TiendaService.API.Autor.Application.DTOs;
 using TiendaService.API.Autor.Models;
 
 
