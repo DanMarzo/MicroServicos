@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Query.Expressions.Internal;
 using TiendaService.API.Autor.Models;
 using TiendaService.API.Autor.Persistence;
 
@@ -11,6 +13,14 @@ public class Nuevo
         public string? Nombre { get; set; }
         public string? Apellido { get; set; }
         public DateTime? FechaNacimiento { get; set; }
+    }
+    public class EjecutaValidation : AbstractValidator<Ejecuta>
+    {
+        public EjecutaValidation()
+        {
+            RuleFor(x => x.Nombre).NotEmpty();
+            RuleFor(x => x.Apellido).NotEmpty();
+        }
     }
     public class Manejador : IRequestHandler<Ejecuta, AutorLibro>
     {

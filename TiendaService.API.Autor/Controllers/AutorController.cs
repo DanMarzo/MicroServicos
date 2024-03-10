@@ -23,13 +23,13 @@ public class AutorController : ControllerBase
         return Ok(autorLibro);
     }
     [HttpGet]
-    public async Task<ActionResult<List<AutorLibro>>> GetAutores()
+    public async Task<ActionResult<List<AutorDTO>>> GetAutores()
     {
         var autorLibros = await _mediator.Send(new Consulta.ListaAutor());
         return Ok(autorLibros);
     }
     [HttpGet]
-    public async Task<ActionResult<AutorLibro>> GetAutorLibro([FromQuery] string id)
+    public async Task<ActionResult<AutorDTO>> GetAutorLibro([FromQuery] string id)
     {
         return await _mediator.Send(
             new ConsultaFiltro.AutorUnico

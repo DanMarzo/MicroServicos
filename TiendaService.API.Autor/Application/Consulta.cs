@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TiendaService.API.Autor.Models;
 using TiendaService.API.Autor.Persistence;
@@ -7,18 +8,21 @@ namespace TiendaService.API.Autor.Application;
 
 public class Consulta
 {
-    public class ListaAutor : IRequest<List<AutorLibro>> { }
-    public class Manejado : IRequestHandler<ListaAutor, List<AutorLibro>>
+    public class ListaAutor : IRequest<List<AutorDTO>> { }
+    public class Manejador : IRequestHandler<ListaAutor, List<AutorDTO>>
     {
         private readonly ContextAutor _contextAutor;
-        public Manejado(ContextAutor contextAutor)
+        private readonly IMapper _mapper;
+        public Manejador(ContextAutor contextAutor, IMapper mapper)
         {
             _contextAutor = contextAutor;
+            _mapper = mapper;
         }
-        public async Task<List<AutorLibro>> Handle(ListaAutor request, CancellationToken cancellationToken)
+        public async Task<List<AutorDTO>> Handle(ListaAutor request, CancellationToken cancellationToken)
         {
             var autores = await _contextAutor.AutorLibros.ToListAsync(cancellationToken);
-            return autores;
+            var autoresDTO = _mapper.Map<List<AutorLibro>, List<AutorDTO>>(autores);
+            return autoresDTO;
         }
     }
 
