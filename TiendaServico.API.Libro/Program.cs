@@ -1,15 +1,20 @@
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using TiendaServico.API.Libro.Application;
 using TiendaServico.API.Libro.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Nuevo>()
+    );
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ContextLibreria>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionSQLServer")));
+builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(typeof(Nuevo.Manejador).Assembly));
 
 var app = builder.Build();
 

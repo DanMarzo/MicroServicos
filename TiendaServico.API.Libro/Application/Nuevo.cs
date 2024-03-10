@@ -24,10 +24,10 @@ public class Nuevo
     }
 
 
-    public class Manajador : IRequestHandler<Ejecuta, LibreriaMaterial>
+    public class Manejador : IRequestHandler<Ejecuta, LibreriaMaterial>
     {
         private readonly ContextLibreria _contextLibreria;
-        public Manajador(ContextLibreria contextLibreria)
+        public Manejador(ContextLibreria contextLibreria)
         {
             _contextLibreria = contextLibreria;
         }
