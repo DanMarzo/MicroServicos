@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using TiendaServices.API.CarritoCompra.Application;
+using TiendaServices.API.CarritoCompra.Models.Consts;
 using TiendaServices.API.CarritoCompra.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ContextCarrito>(x => x.UseMySQL(builder.Configuration.GetConnectionString("ConnectionMySQL")!));
 builder.Services.AddMediatR(x => x.RegisterServicesFromAssemblyContaining<Nuevo.Ejecuta>());
+builder.Services.AddHttpClient(HttpConsts.LibrosService, config =>
+{
+    config.BaseAddress = new Uri(builder.Configuration["Services:Libros"]!);
+});
+builder.Services.AddHttpClient(HttpConsts.AutoresService, config =>
+{
+    config.BaseAddress = new Uri(builder.Configuration["Services:Autores"]!);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
