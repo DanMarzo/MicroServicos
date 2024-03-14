@@ -3,6 +3,8 @@ using System.Text.Json.Serialization;
 using TiendaServices.API.CarritoCompra.Application;
 using TiendaServices.API.CarritoCompra.Models.Consts;
 using TiendaServices.API.CarritoCompra.Persistence;
+using TiendaServices.API.CarritoCompra.RemoteInterface;
+using TiendaServices.API.CarritoCompra.RemoteService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,8 @@ builder.Services.AddHttpClient(HttpConsts.AutoresService, config =>
 {
     config.BaseAddress = new Uri(builder.Configuration["Services:Autores"]!);
 });
+builder.Services.AddScoped<ILibroService, LibroService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
