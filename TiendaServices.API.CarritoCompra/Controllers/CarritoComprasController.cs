@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TiendaServices.API.CarritoCompra.Application;
+using TiendaServices.API.CarritoCompra.Application.DTOs;
 using TiendaServices.API.CarritoCompra.Models;
 
 namespace TiendaServices.API.CarritoCompra.Controllers;
@@ -19,4 +20,13 @@ public class CarritoComprasController : ControllerBase
     {
         return await _mediator.Send(ejecuta);
     }
+    [HttpGet]
+    public async Task<ActionResult<CarritoDTO>> GetCarrito([FromQuery] int id)
+    {
+        return await _mediator.Send(new Consulta.Ejecuta
+        {
+            CarritoSessionId = id
+        } );
+    }
+
 }
