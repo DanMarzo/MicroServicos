@@ -1,0 +1,34 @@
+docker pull nginx:latest 
+Executar container
+docker run -it nginx:latest /bin/bash
+
+Instancias para Container
+
+Acessar o PostGres via CLI
+docker exec -it postgres_server bash
+
+-> psql -U postgres //para conectar ao banco de dados
+\l para listar os bancos
+\d tabelas
+
+
+Usar docker compose para executar dois container que dependem de si
+
+Para a comunicacao de container e necessario criar um network
+
+docker network create microsservice_net
+
+Connectar a rede o container
+
+ docker network connect microsservice_net postgres_server //name container
+
+
+
+services:
+  tiendaservice.api.autor:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+       - "6104:8080" //dps da porta deve ser a porta da aplicacao que esta rodadndo
+
