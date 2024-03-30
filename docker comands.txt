@@ -36,4 +36,9 @@ services:
 - Routing 
 - Composition
 - Security
-- 
+
+Names in Docker 
+
+41474eca3ff8   tiendaservicesapicarritocompra:dev   "tail -f /dev/null"      About an hour ago   Up About an hour   0.0.0.0:6106->9998/tcp              TiendaServices.API.CarritoCompra
+d3f2bcb8a3ae   tiendaservicoapilibro:dev            "tail -f /dev/null"      About an hour ago   Up About an hour   0.0.0.0:6105->9999/tcp              TiendaServico.API.Libro
+f348a2f75907   tiendaserviceapiautor:6dev            "tail -f /dev/null"      About an hour ago   Up About an hour   0.0.0.0:6104->8080/tcp              TiendaService.API.Autor
