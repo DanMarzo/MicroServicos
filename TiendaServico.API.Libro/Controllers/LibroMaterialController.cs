@@ -26,8 +26,8 @@ public class LibroMaterialController : ControllerBase
     {
         return await _mediator.Send(new Consulta.Ejecuta());
     }
-    [HttpGet]
-    public async Task<ActionResult<LibroMaterialDTO>> GetLibroUnico([FromQuery] Guid id)
+    [HttpGet("{id}")]
+    public async Task<ActionResult<LibroMaterialDTO>> GetLibroUnico(Guid id)
     {
         return await _mediator.Send(new ConsultaFiltro.LibroUnico { LibroId = id });
     }

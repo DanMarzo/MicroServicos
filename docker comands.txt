@@ -32,3 +32,8 @@ services:
     ports:
        - "6104:8080" //dps da porta deve ser a porta da aplicacao que esta rodadndo
 
+---> API Gateway
+- Routing 
+- Composition
+- Security
+- 
