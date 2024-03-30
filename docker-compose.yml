@@ -6,7 +6,20 @@ services:
     build:
       context: .
       dockerfile: TiendaService.API.Autor/Dockerfile
+  tiendaservico.api.libro:
+    image: ${DOCKER_REGISTRY-}tiendaservicoapilibro
+    build:
+      context: .
+      dockerfile: TiendaServico.API.Libro/Dockerfile
+
+  tiendaservices.api.carritocompra:
+    image: ${DOCKER_REGISTRY-}tiendaservicesapicarritocompra
+    build:
+      context: .
+      dockerfile: TiendaServices.API.CarritoCompra/Dockerfile
+
 networks:
   default:
     external:
      name: microsservice_net
+
