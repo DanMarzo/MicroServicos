@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TiendaServico.API.Libro\TiendaServico.API.Libro.csproj" />
+    <ProjectReference Include="..\TiendaServico.API.Libro\TiendaServicios.API.Libro.csproj" />
   </ItemGroup>
 
   <ItemGroup>
