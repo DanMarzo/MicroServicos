@@ -1,0 +1,28 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/LibroMaterial",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tiendaservico.api.libro",
+          "Port": 9999
+        }
+      ],
+      "UpstreamPathTemplate": "/Libro",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/LibroMaterial/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tiendaservico.api.libro",
+          "Port": 9999
+        }
+      ],
+      "UpstreamPathTemplate": "/Libro/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELET" ]
+    }
+  ]
+}

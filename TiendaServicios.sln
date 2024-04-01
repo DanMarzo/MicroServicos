@@ -3,24 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServicios.API.Autor", "TiendaService.API.Autor\TiendaServicios.API.Autor.csproj", "{5C535CA8-1BA0-4478-A7E5-49349F46E2CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServicios.API.Autor", "TiendaServicios.API.Autor\TiendaServicios.API.Autor.csproj", "{5C535CA8-1BA0-4478-A7E5-49349F46E2CD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServicios.API.Libro", "TiendaServico.API.Libro\TiendaServicios.API.Libro.csproj", "{81AF5DDD-BC1A-453B-8373-40E958DD0C54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServicios.API.Libro", "TiendaServicios.API.Libro\TiendaServicios.API.Libro.csproj", "{81AF5DDD-BC1A-453B-8373-40E958DD0C54}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServicios.API.CarritoCompra", "TiendaServices.API.CarritoCompra\TiendaServicios.API.CarritoCompra.csproj", "{31E04FA9-3513-4622-A8E3-4EC1A9E33597}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServicios.API.CarritoCompra", "TiendaServicios.API.CarritoCompra\TiendaServicios.API.CarritoCompra.csproj", "{31E04FA9-3513-4622-A8E3-4EC1A9E33597}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{44FB223A-8C82-4CA2-9BE0-C360D4D2FCBB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServico.API.Libro.Test", "TiendaServico.API.Libro.Test\TiendaServico.API.Libro.Test.csproj", "{A2B92390-BCA9-4312-8AF8-45F3FE143230}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServicios.API.Libro.Test", "TiendaServicios.API.Libro.Test\TiendaServicios.API.Libro.Test.csproj", "{A2B92390-BCA9-4312-8AF8-45F3FE143230}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{07F53FD0-CB4F-43EE-A174-A74B1772AA81}"
 	ProjectSection(SolutionItems) = preProject
 		docker comands.txt = docker comands.txt
 	EndProjectSection
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D7FDB4E6-2023-4A03-905E-E79C36B559C0}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{986681BE-C541-48BB-8886-B8D7F203A39A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServicios.Api.Gateway", "..\TiendaServicios.Api.Gateway\TiendaServicios.Api.Gateway.csproj", "{A2D7774D-0AED-4698-ACAE-AF43070D26FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiendaServicios.Api.Gateway", "TiendaServicios.Api.Gateway\TiendaServicios.Api.Gateway.csproj", "{9EC8894E-E9AD-4CB6-B592-A8A3D914A1E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,14 +44,14 @@ Global
 		{A2B92390-BCA9-4312-8AF8-45F3FE143230}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2B92390-BCA9-4312-8AF8-45F3FE143230}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2B92390-BCA9-4312-8AF8-45F3FE143230}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7FDB4E6-2023-4A03-905E-E79C36B559C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7FDB4E6-2023-4A03-905E-E79C36B559C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7FDB4E6-2023-4A03-905E-E79C36B559C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7FDB4E6-2023-4A03-905E-E79C36B559C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2D7774D-0AED-4698-ACAE-AF43070D26FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2D7774D-0AED-4698-ACAE-AF43070D26FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2D7774D-0AED-4698-ACAE-AF43070D26FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2D7774D-0AED-4698-ACAE-AF43070D26FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{986681BE-C541-48BB-8886-B8D7F203A39A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{986681BE-C541-48BB-8886-B8D7F203A39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{986681BE-C541-48BB-8886-B8D7F203A39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{986681BE-C541-48BB-8886-B8D7F203A39A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EC8894E-E9AD-4CB6-B592-A8A3D914A1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EC8894E-E9AD-4CB6-B592-A8A3D914A1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EC8894E-E9AD-4CB6-B592-A8A3D914A1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EC8894E-E9AD-4CB6-B592-A8A3D914A1E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

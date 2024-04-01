@@ -4,10 +4,10 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
-    <ProjectGuid>d7fdb4e6-2023-4a03-905e-e79c36b559c0</ProjectGuid>
+    <ProjectGuid>986681be-c541-48bb-8886-b8d7f203a39a</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
-    <DockerServiceName>tiendaservice.api.autor</DockerServiceName>
+    <DockerServiceName>tiendaservicios.api.autor</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">
