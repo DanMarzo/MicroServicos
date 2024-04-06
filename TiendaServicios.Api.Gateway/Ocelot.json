@@ -10,7 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/ObterLivros",
-      "UpstreamHttpMethod": [ "GET", "PUT", "POST" ]
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST" ],
     },
     {
       "DownstreamPathTemplate": "/api/LibroMaterial/GetLibroUnico/{id}",
