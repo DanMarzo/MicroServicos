@@ -11,6 +11,9 @@
       ],
       "UpstreamPathTemplate": "/ObterLivros",
       "UpstreamHttpMethod": [ "GET", "PUT", "POST" ],
+      "DelegatingHandlers": [
+        "LivroHandler"
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/LibroMaterial/GetLibroUnico/{id}",

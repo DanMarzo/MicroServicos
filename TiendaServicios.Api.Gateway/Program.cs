@@ -1,5 +1,6 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using TiendaServicios.Api.Gateway.MessageHandler;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +22,8 @@ builder.Services.AddCors(opt =>
 });
 
 builder.Configuration.AddJsonFile("ocelot.json");
-builder.Services.AddOcelot();
+builder.Services.AddOcelot()
+    .AddDelegatingHandler<LivroHandler>();
 
 var app = builder.Build();
 
