@@ -10,10 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/ObterLivros",
-      "UpstreamHttpMethod": [ "GET", "PUT", "POST" ],
-      "DelegatingHandlers": [
-        "LivroHandler"
-      ]
+      "UpstreamHttpMethod": [ "GET", "PUT", "POST" ]
     },
     {
       "DownstreamPathTemplate": "/api/LibroMaterial/GetLibroUnico/{id}",
@@ -25,7 +22,10 @@
         }
       ],
       "UpstreamPathTemplate": "/Libro/{id}",
-      "UpstreamHttpMethod": [ "Get", "Delete" ]
+      "UpstreamHttpMethod": [ "Get", "Delete" ],
+      "DelegatingHandlers": [
+        "LivroHandler"
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/Autor/GetAutores",
