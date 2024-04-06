@@ -1,28 +1,28 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/LibroMaterial",
+      "DownstreamPathTemplate": "/api/LibroMaterial/GetLibros",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "tiendaservico.api.libro",
-          "Port": 9999
+          "Host": "tiendaservicios.api.libro",
+          "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/Libro",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+      "UpstreamPathTemplate": "/ObterLivros",
+      "UpstreamHttpMethod": [ "GET" ]
     },
     {
-      "DownstreamPathTemplate": "/api/LibroMaterial/{id}",
+      "DownstreamPathTemplate": "/api/LibroMaterial/GetLibroUnico/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "tiendaservico.api.libro",
-          "Port": 9999
+          "Host": "tiendaservicios.api.libro",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/Libro/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELET" ]
+      "UpstreamHttpMethod": [ "Get", "Delete" ]
     }
   ]
 }

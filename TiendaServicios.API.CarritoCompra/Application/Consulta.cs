@@ -47,12 +47,12 @@ public class Consulta
                     listaCarritoDto.Add(carritoDetalhe);
                 }
             }
-            var carritoSessionDTO = new CarritoDTO
-            {
-                CarritoId = (int)carritoSession.CarritoSessionId,
-                FechaCreacionSession = carritoSession.FechaCreacion,
-                ListaProductos = listaCarritoDto
-            };
+            var carritoSessionDTO = new CarritoDTO();
+
+            carritoSessionDTO.CarritoId = (int)carritoSession.CarritoSessionId;
+            carritoSessionDTO.FechaCreacionSession = carritoSession?.FechaCreacion;
+            carritoSessionDTO.ListaProductos = listaCarritoDto;
+
             return carritoSessionDTO;
         }
     }

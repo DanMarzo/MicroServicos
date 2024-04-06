@@ -1,14 +1,11 @@
 ﻿using AutoMapper;
 using Moq;
-using TiendaServico.API.Libro.Application.DTOs;
 using GenFu;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using TiendaServicios.API.Libro.Persistence;
 using TiendaServicios.API.Libro.Application;
 using TiendaServicios.API.Libro.Models;
-using TiendaServico.API.Libro.Test;
 
 namespace TiendaServicios.API.Libro.Test;
 

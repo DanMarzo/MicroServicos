@@ -4,7 +4,7 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
-    <ProjectGuid>986681be-c541-48bb-8886-b8d7f203a39a</ProjectGuid>
+    <ProjectGuid>0f7d96f9-2534-4244-b36a-f70a409940a0</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>tiendaservicios.api.autor</DockerServiceName>
