@@ -1,5 +1,7 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using TiendaServicios.Api.Gateway.ImplementRemote;
+using TiendaServicios.Api.Gateway.InterfaceRemote;
 using TiendaServicios.Api.Gateway.MessageHandler;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpClient("AutorService", x =>
+{
+    x.BaseAddress = new Uri(builder.Configuration["Services:Autor"]);
+});
 
+builder.Services.AddScoped<IAutorRemote, AutorRemote>();
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("Policy", pt =>

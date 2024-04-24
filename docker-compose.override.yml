@@ -26,6 +26,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
+      - Services__Autor=http://tiendaservicios.api.gateway
     depends_on:
       - tiendaservicios.api.libro
     ports:

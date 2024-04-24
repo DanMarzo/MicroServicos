@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Text.Json;
+using TiendaServicios.Api.Gateway.InterfaceRemote;
 using TiendaServicios.Api.Gateway.LibroRemote;
 
 namespace TiendaServicios.Api.Gateway.MessageHandler;
@@ -7,10 +8,12 @@ namespace TiendaServicios.Api.Gateway.MessageHandler;
 public class LivroHandler : DelegatingHandler
 {
     private readonly ILogger<LivroHandler> _logger;
+    private readonly IAutorRemote _autorRemote;
 
-    public LivroHandler(ILogger<LivroHandler> logger)
+    public LivroHandler(ILogger<LivroHandler> logger, IAutorRemote autorRemote)
     {
         _logger = logger;
+        _autorRemote = autorRemote;
     }
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
