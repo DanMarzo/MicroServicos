@@ -17,7 +17,8 @@ builder.Services.AddHttpClient("AutorService", x =>
     x.BaseAddress = new Uri(builder.Configuration["Services:Autor"]);
 });
 
-builder.Services.AddScoped<IAutorRemote, AutorRemote>();
+
+builder.Services.AddSingleton<IAutorRemote, AutorRemote>();
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("Policy", pt =>

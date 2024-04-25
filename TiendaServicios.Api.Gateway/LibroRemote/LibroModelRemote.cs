@@ -6,4 +6,5 @@ public class LibroModelRemote
     public DateTime? FechaPublicacion { get; set; }
     public Guid? AutorLibro { get; set; }
     public Guid? LibreriaMaterialId { get; set; }
+    public AutorModeloRemote? AutorModeloRemote { get; set; }
 }

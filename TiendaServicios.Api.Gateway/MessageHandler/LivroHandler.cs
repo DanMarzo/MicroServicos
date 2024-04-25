@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text;
 using System.Text.Json;
 using TiendaServicios.Api.Gateway.InterfaceRemote;
 using TiendaServicios.Api.Gateway.LibroRemote;
@@ -28,9 +29,14 @@ public class LivroHandler : DelegatingHandler
             var content = await response.Content.ReadAsStringAsync();
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             var result = JsonSerializer.Deserialize<LibroModelRemote>(content, option);
-
+            var responseAutor  = await _autorRemote.GetAutor(result?.AutorLibro ?? Guid.Empty);
+            if (responseAutor.resultado)
+            {
+                result.AutorModeloRemote = responseAutor.autor;
+                response.Content = new StringContent(JsonSerializer.Serialize(responseAutor), Encoding.UTF8, "application/json");
+                return response;
+            }
         }
-
         _logger.LogInformation($"El processo se hizo en {tiempo.ElapsedMilliseconds}ms");
         return response;
     }
