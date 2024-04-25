@@ -10,7 +10,19 @@
         }
       ],
       "UpstreamPathTemplate": "/ObterLivros",
-      "UpstreamHttpMethod": [ "GET", "PUT", "POST" ]
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/LibroMaterial/Crear",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tiendaservicios.api.libro",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/CrearLibro",
+      "UpstreamHttpMethod": [ "POST" ]
     },
     {
       "DownstreamPathTemplate": "/api/LibroMaterial/GetLibroUnico/{id}",
@@ -50,6 +62,18 @@
       ],
       "UpstreamPathTemplate": "/Autor/{id}",
       "UpstreamHttpMethod": [ "Get", "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Autor/Crear",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tiendaservicios.api.autor",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/CrearAutor",
+      "UpstreamHttpMethod": [ "POST" ]
     },
     {
       "DownstreamPathTemplate": "/api/CarritoCompras/GetCarrito?id={id}",

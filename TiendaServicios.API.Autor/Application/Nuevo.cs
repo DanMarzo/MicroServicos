@@ -36,7 +36,8 @@ public class Nuevo
             {
                 Nombre = request.Nombre,
                 Apellido = request.Apellido,
-                FechaNacimiento = request.FechaNacimiento,
+                FechaNacimiento = DateTime.UtcNow, //request.FechaNacimiento
+                //FechaNacimiento = DateTime.Parse(request.FechaNacimiento.ToString()), 
                 AutorLibroGuid = Guid.NewGuid().ToString()
             };
             await _contextAutor.AddAsync(autorLibro);

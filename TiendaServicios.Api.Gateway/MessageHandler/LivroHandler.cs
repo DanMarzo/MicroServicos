@@ -33,8 +33,7 @@ public class LivroHandler : DelegatingHandler
             if (responseAutor.resultado)
             {
                 result.AutorModeloRemote = responseAutor.autor;
-                response.Content = new StringContent(JsonSerializer.Serialize(responseAutor), Encoding.UTF8, "application/json");
-                return response;
+                response.Content = new StringContent(JsonSerializer.Serialize(result), Encoding.UTF8, "application/json");
             }
         }
         _logger.LogInformation($"El processo se hizo en {tiempo.ElapsedMilliseconds}ms");
