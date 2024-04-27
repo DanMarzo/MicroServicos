@@ -2,6 +2,8 @@ using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using TiendaServicios.API.Libro.Application;
 using TiendaServicios.API.Libro.Persistence;
+using TiendaServicios.RabbitMQ.Bus.BusRabbit;
+using TiendaServicios.RabbitMQ.Bus.Implement;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,7 @@ builder.Services.AddControllers()
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<IRabbitEventBus, RabbitEventBus>();
 builder.Services.AddDbContext<ContextLibreria>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionSQLServer")));
 builder.Services.AddMediatR(x => x.RegisterServicesFromAssembly(typeof(Nuevo.Manejador).Assembly));
 builder.Services.AddAutoMapper(typeof(Consulta.Ejecuta));

@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
 using TiendaServicios.RabbitMQ.Bus.BusRabbit;
@@ -28,13 +29,13 @@ public class RabbitEventBus : IRabbitEventBus
 
     public void Publish<T>(T evento) where T : Evento
     {
-        var factory = new ConnectionFactory() { HostName = "localhost" };
+        var factory = new ConnectionFactory() { HostName = "rabbitmq" };
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
 
         var eventName = evento.GetType().Name;
 
-        channel.QueueDeclare(eventName, false,false, false, null);
+        channel.QueueDeclare(eventName, false, false, false, null);
 
         var message = JsonSerializer.Serialize(evento);
         var body = Encoding.UTF8.GetBytes(message);
@@ -43,8 +44,67 @@ public class RabbitEventBus : IRabbitEventBus
 
     public void Subscribe<T, TH>()
         where T : Evento
-        where TH : IEventoManejador
+        where TH : IEventoManejador<T>
     {
-        throw new NotImplementedException();
+        var eventName = typeof(T).Name;
+        var manejadoTipo = typeof(TH);
+
+        if (!_eventosTipos.Contains(typeof(T)))
+        {
+            _eventosTipos.Add(typeof(T));
+        }
+        if (!_manejadores.ContainsKey(eventName))
+        {
+            _manejadores.Add(eventName, new List<Type>());
+        }
+        if (_manejadores[eventName].Any(x => x.GetType() == manejadoTipo))
+        {
+            throw new Exception($"El manejandor {manejadoTipo.Name}, fue registrado por {eventName}");
+        }
+
+        _manejadores[eventName].Add(manejadoTipo);
+
+        var factory = new ConnectionFactory()
+        {
+            HostName = "rabbitmq",
+            DispatchConsumersAsync = true,
+        };
+        using var connection = factory.CreateConnection();
+        using var chanel = connection.CreateModel();
+        chanel.QueueDeclare(eventName, false, false, false, null);
+        var consumer = new AsyncEventingBasicConsumer(chanel);
+
+        consumer.Received += Consumer_Delegate; //Encarregado de ler as mensagens do QUE
+
+        chanel.BasicConsume(eventName, true, consumer);
+
+    }
+    //Encarregado de ler as mensagens do QUE
+    private async Task Consumer_Delegate(object sender, BasicDeliverEventArgs @event)
+    {
+        var eventName = @event.RoutingKey;
+        var message = Encoding.UTF8.GetString(@event.Body.ToArray());
+        try
+        {
+            if (_manejadores.ContainsKey(eventName))
+            {
+                var subscriptions = _manejadores[eventName];
+                foreach (var subscription in subscriptions)
+                {
+                    var manejador = Activator.CreateInstance(subscription);
+                    if (manejador == null) continue;
+                    var tipoEvento = _eventosTipos.SingleOrDefault(x => x.Name == eventName);
+                    var eventDs = JsonSerializer.Deserialize("", tipoEvento);
+                    var concretoTipo = typeof(IEventoManejador<>).MakeGenericType(tipoEvento);
+                    await (Task)concretoTipo.GetMethod("Handle").Invoke(manejador, new object[] { eventDs });
+
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+
+            throw;
+        }
     }
 }

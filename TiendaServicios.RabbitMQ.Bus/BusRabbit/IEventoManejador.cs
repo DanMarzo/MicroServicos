@@ -7,4 +7,7 @@ public interface IEventoManejador<in TEvent> : IEventoManejador where TEvent : E
     Task Handle(TEvent @event);
 }
 
-public interface IEventoManejador { }
+public interface IEventoManejador
+{
+
+}
